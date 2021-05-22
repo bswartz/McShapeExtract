@@ -5,17 +5,17 @@
 ## Usage
 ```
 // First download MC server jar and deobfuscation mappings
-wget -O minecraft-server-1.16.3.jar https://launcher.mojang.com/v1/objects/f02f4473dbf152c23d7d484952121db0b36698cb/server.jar
-wget -O mappings-server-1.16.3.txt https://launcher.mojang.com/v1/objects/e75ff1e729aec4a3ec6a94fe1ddd2f5a87a2fd00/server.txt
+wget -O minecraft-server-1.16.5.jar https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar
+wget -O mappings-server-1.16.5.txt https://launcher.mojang.com/v1/objects/41285beda6d251d190f2bf33beadd4fee187df7a/server.txt
 
 // Use Reconstruct to deobfuscate the jar
-java -jar reconstruct-cli-1.3.2.jar -agree -threads 4 -jar minecraft-server-1.16.3.jar -mapping mappings-server-1.16.3.txt -output deobf-server-1.16.3.jar -exclude "com.google.,com.mojang.,io.netty.,it.unimi.dsi.fastutil.,javax.,joptsimple.,org.apache."
+java -jar reconstruct-cli-1.3.2.jar -agree -threads 4 -jar minecraft-server-1.16.5.jar -mapping mappings-server-1.16.5.txt -output deobf-server-1.16.5.jar -exclude "com.google.,com.mojang.,io.netty.,it.unimi.dsi.fastutil.,javax.,joptsimple.,org.apache."
 
 // Compile
-javac -cp deobf-server-1.16.3.jar:javax.json-1.0.4.jar Extract.java
+javac -cp deobf-server-1.16.5.jar:javax.json-1.0.4.jar Extract.java
 
 // Run
-java -cp deobf-server-1.16.3.jar:javax.json-1.0.4.jar:. Extract
+java -cp deobf-server-1.16.5.jar:javax.json-1.0.4.jar:. Extract
 ```
 
 ## Notes
@@ -26,7 +26,7 @@ have human-readable names, though.
 
 ## References
 
-Depends on Minecraft server 1.16.3. Download the jar and mappings based on links found
+Depends on Minecraft server 1.16.5 Download the jar and mappings based on links found
 [here](https://launchermeta.mojang.com/mc/game/version_manifest.json).
 
 Special thanks to [Reconstruct](https://github.com/LXGaming/Reconstruct) for providing a deobfuscator
